@@ -1,6 +1,8 @@
 require('dotenv').config()
 const OpenAI = require("openai");
 const express = require('express')
+const fs = require('fs')
+const pdf = require('pdf-parse')
 const cors = require('cors')
 const app = express()
 
@@ -22,10 +24,10 @@ async function generateSchedule(pdfText) {
       const completion = await openai.completions.create({
         model: 'gpt-3.5-turbo-instruct',
         prompt: inputText,
-        max_tokens: 100,
+        max_tokens: 400,
     });
       // Extract the generated text from the API response
-      const schedule = response.choices[0].text;
+      const schedule = completion.choices[0].text;
   
       return schedule;
     } catch (error) {
@@ -34,7 +36,7 @@ async function generateSchedule(pdfText) {
     }
   }
 
-app.get('/parse', async (req, res) => {
+app.post('/parse', async (req, res) => {
     body = req.body
 
     const inputText = `Create a schedule with all midterms, exams, and tests scheduled chronologically based on the following information ${body.content}.`;
@@ -42,11 +44,19 @@ app.get('/parse', async (req, res) => {
     const schedule = await generateSchedule(inputText);
 
     if (schedule) {
-        res.json({ schedule });
+        res.json(schedule);
     } else {
         res.status(500).json({ error: 'Failed to generate schedule' });
     }
 });
+
+app.post('/process', (req, res) => {
+    let dataBuffer = fs.readFileSync('./Syllabus.pdf');
+
+    pdf(dataBuffer).then((data) => {
+        return data.text
+    })
+})
 
 PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
