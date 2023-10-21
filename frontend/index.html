@@ -4,13 +4,21 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer type="module" src="/main.js"></script>
     <title>Vite App</title>
   </head>
   <body>
-    <div id="app"></div>
-    <script defer type="module" src="/main.js"></script>
-    <p>Upload your syllabus file here: </p>
-    <input type = "file" id="syllabusFile" name="syllabus" accept="application/pdf">
-    <button id="uploadButton" onclick="uploadFile()"> Upload </button>
+    <div id="app">
+      
+    </div>
+    <div class="upload-container">
+      <div class="input-file">
+        <p>Upload your syllabus file here: </p>
+        <input type = "file" id="syllabusFile" name="syllabus" accept="application/pdf">
+      </div>
+      <div class="upload-btn">
+        <button class="button-35" role="button" id="uploadButton" onclick="uploadFile()">UPLOAD</button>
+      </div>
+    </div>
   </body>
 </html>
