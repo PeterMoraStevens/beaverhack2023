@@ -52,5 +52,3 @@ PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
     console.log(`server is listening at ${PORT}`)
 })
-
-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
