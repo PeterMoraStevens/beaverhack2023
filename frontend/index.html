@@ -13,7 +13,7 @@
     <div id="app"></div>
     <script defer type="module" src="/main.js"></script>
     <p>Upload your syllabus file here: </p>
-    <form class="form" id="myForm">
+    <form class="form" id="myForm" action="/process" method="POST" enctype="multipart/form-data">
       <input type = "file" id="syllFile" name="syllabus" accept="application/pdf">
       <button class="button-35" type="submit"> Upload </button>
     </form>
