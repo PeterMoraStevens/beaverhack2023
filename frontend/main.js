@@ -13,8 +13,10 @@ myForm.addEventListener('submit', async (event) => {
       headers: { 'Content-Type': 'multipart/form-data' },
     });
 
+    const gpt = await axios.post('/parse', response)
+
     const outputDiv = document.getElementById('output');
-    outputDiv.innerHTML = `<h2>Processed PDF Text:</h2><pre>${response}</pre>`;
+    outputDiv.innerHTML = `<h2>Processed PDF Text:</h2><pre>${gpt.data}</pre>`;
   } catch (error) {
     console.error(error);
   }

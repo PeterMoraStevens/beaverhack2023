@@ -66,13 +66,6 @@ app.post('/parse', async (req, res) => {
 });
 
 app.post('/process', upload.single('syllabus'), async (req, res) => {
-    req.on('error', function(err) {
-        if (err.code === "ECONNRESET") {
-            console.log("Timeout occurs");
-            return;
-        }
-        //handle normal errors
-    });
 
     try {
       if (!req.file) {
@@ -86,10 +79,7 @@ app.post('/process', upload.single('syllabus'), async (req, res) => {
       const text = data.text;
       
       // Send the text to the client
-      axios.post('/parse', text).then(res => {
-        return res
-        req.end()
-      })
+      res.json(text)
     } catch (error) {
       console.error(error);
       res.status(500).send('An error occurred while processing the PDF.');
