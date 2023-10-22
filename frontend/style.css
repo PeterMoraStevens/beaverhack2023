@@ -30,6 +30,8 @@ body {
   border: 2px solid #3E5C76;
 }
 
+/* Found on https://getcssscan.com/css-buttons-examples , button-35*/
+
 /* CSS */
 .button-35{ /* Upload Button */
   align-items: center;
@@ -73,6 +75,8 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+/* found on https://codepen.io/tomad8/pen/VwaPOXR , made by : Tom Adey*/
 
 .loadingspinner {
   --square: 26px;
