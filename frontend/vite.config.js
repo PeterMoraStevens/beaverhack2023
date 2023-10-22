@@ -1,20 +1,12 @@
 // vite.config.js
-export default {
+import { defineConfig } from 'vite';
+
+export default defineConfig({
   server: {
     proxy: {
-      '/process': {
-        target: 'http://localhost:3001',
-        changeOrigin: true,
-        secure: false,
-        ws: true,
-      },
-      '/parse': {
-        target: 'http://localhost:3001',
-        changeOrigin: true,
-        secure: false,
-        ws: true,
-      },
+      '/process':'http://localhost:3001',
+      '/parse':'http://localhost:3001',
     },
   },
-};
-
+  plugins: [],
+});

@@ -79,9 +79,7 @@ app.post('/process', upload.single('syllabus'), async (req, res) => {
       const text = data.text;
       
       // Send the text to the client
-      axios.post('/parse', text).then(returnedText => {
-        res.send(returnedText)
-      })
+      res.json(text)
     } catch (error) {
       console.error(error);
       res.status(500).send('An error occurred while processing the PDF.');
