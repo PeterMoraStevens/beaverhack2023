@@ -5,12 +5,14 @@ export default {
       '/process': {
         target: 'http://localhost:3001',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/process/, ''),
+        secure: false,
+        ws: true,
       },
       '/parse': {
         target: 'http://localhost:3001',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/process/, ''),
+        secure: false,
+        ws: true,
       },
     },
   },
