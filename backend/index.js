@@ -33,7 +33,7 @@ async function generateSchedule(pdfText) {
     });
 
     try {
-      const inputText = `Create a schedule of only my midterms, exams, tests or assignments scheduled chronologically using the following PDF Text, be consice, do not repeat yourself, if no exact hour is stated then leave blank, group by week: ${pdfText}`;
+      const inputText = `Create a schedule of only my midterms, exams, tests or assignments dates scheduled chronologically using the following PDF Text, be consice, do not repeat yourself, if no exact hour is stated then leave blank, group by week: ${pdfText}`;
   
       // Make a request to the GPT-3.5 Turbo engine
       const completion = await openai.completions.create({
