@@ -24,9 +24,11 @@ body {
 }
 
 .output-container{
-  padding: 15px;
-  width: 80%;
-  border: 5px solid #3E5C76;
+  justify-content: center;
+  align-items: center;
+  margin: 75px;
+  padding: 30px;
+  border: 2px solid #3E5C76;
 }
 
 /* CSS */

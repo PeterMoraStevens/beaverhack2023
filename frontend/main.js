@@ -1,4 +1,6 @@
 import axios from 'axios';
+// import * as fsExtra from "fs-extra";
+
 
 const myForm = document.getElementById("myForm");
 const syllFile = document.getElementById("syllFile");
@@ -16,8 +18,9 @@ myForm.addEventListener('submit', async (event) => {
 
     const gpt = await axios.post('/parse', response)
     
+    // fsExtra.emptyDirSync('backend/uploads');
     const outputDiv = document.getElementById('output');
-    outputDiv.innerHTML = `<h2>Processed PDF Text:</h2><pre>${gpt.data}</pre>`;
+    outputDiv.innerHTML = `<pre>${gpt.data}</pre>`;
   } catch (error) {
     console.error(error);
   }

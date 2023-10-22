@@ -6,26 +6,25 @@
     <link rel="icon" type="image/x-icon" href="/favicon-32x32.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css">
-    <script defer type="module" src="/main.js"></script>
-    <title>Vite App</title>
+    <script defer type="module" src="./main.js"></script>
+    <title>Syllabus Parser</title>
   </head>
   <body >
     <div class="upload-container">
       <div class="form-container">
         <h1> Upload your syllabus file here:</h1>
         <form class="form" id="myForm" action="/process" method="POST" enctype="multipart/form-data">
-        <input class="inputfile" type = "file" id="syllFile" name="syllabus" accept="application/pdf"> <!-- input file --> 
+          <input class="inputfile" type = "file" id="syllFile" name="syllabus" accept="application/pdf"> <br> 
+          <button class="button-35" type="submit"> Upload </button>
         </form>
       </div>
-      <button class="button-35" type="submit"> Upload </button>
     </div>
-    <BR>
-    
-    <div id="output-container">
+    <div class="output-container">
       <div id="output">
 
       </div>
-
     </div>
+
+
   </body>
 </html>
