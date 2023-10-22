@@ -4,18 +4,18 @@ const myForm = document.getElementById("myForm");
 const syllFile = document.getElementById("syllFile");
 const schedule = document.getElementsByClassName("returned-schedule");
 
-myForm.addEventListener("submit", e => {
-    e.preventDefault();
+myForm.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const formData = new FormData(myForm);
 
-    const formData = new FormData();
+  try {
+    const response = await axios.post('/process', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    });
 
-    console.log(syllFile.files);
-
-    formData.append("syllFile", syllFile.files[0]);
-
-    
-    axios.post('/process', formData).then((res) => {
-      axios.post('/parse', res.data).then((returnedSchedule) => {
-        schedule.innerHTML += `${returnedSchedule}`
-      }).catch(console.error);
-    })});
+    const outputDiv = document.getElementById('output');
+    outputDiv.innerHTML = `<h2>Processed PDF Text:</h2><pre>${response}</pre>`;
+  } catch (error) {
+    console.error(error);
+  }
+});
