@@ -34,7 +34,7 @@ async function generateSchedule(pdfText) {
     });
 
     try {
-      const inputText = `Create a schedule of only my midterms and exams and tests and homework and assignments with the dates for all of them and grouped into the weeks they are due sorted chronologically, be consice, do not repeat yourself, if no exact hour is stated then leave blank. To do this, use using the following PDF Text: ${pdfText}`;
+      const inputText = `Create a schedule of only my midterms and exams and tests and homework and assignments with the dates for all of them and grouped into the weeks they are due sorted chronologically, be consice that is try to keep the schedule limited to only requirements, do not repeat yourself, if no exact hour is stated then leave blank. To do this, use using the following PDF Text: ${pdfText}`;
   
       // Make a request to the GPT-3.5 Turbo engine
       const completion = await openai.completions.create({
