@@ -33,13 +33,13 @@ async function generateSchedule(pdfText) {
     });
 
     try {
-      const inputText = `Create a schedule with all my midterms, exams, and tests scheduled chronologically using the following PDF Text, if no exact hour is stated, leave blank: "${pdfText}"`;
+      const inputText = `Create a schedule with all my midterms, exams, and tests scheduled chronologically using the following PDF Text, be consice, do not repeat yourself, if no exact hour is stated, leave blank: ${pdfText}`;
   
       // Make a request to the GPT-3.5 Turbo engine
       const completion = await openai.completions.create({
         model: 'gpt-3.5-turbo-instruct',
         prompt: inputText,
-        max_tokens: 400,
+        max_tokens: 600,
     });
       // Extract the generated text from the API response
       const schedule = completion.choices[0].text;
@@ -54,7 +54,7 @@ async function generateSchedule(pdfText) {
 app.post('/parse', async (req, res) => {
     body = req.body
 
-    const inputText = `Create a schedule with all midterms, exams, and tests scheduled chronologically based on the following information ${body}.`;
+    const inputText = `Create a schedule with all midterms, exams, and tests scheduled chronologically based on the following information ${body.data}.`;
     
     const schedule = await generateSchedule(inputText);
 

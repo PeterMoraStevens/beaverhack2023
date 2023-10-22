@@ -14,7 +14,7 @@ myForm.addEventListener('submit', async (event) => {
     });
 
     const gpt = await axios.post('/parse', response)
-
+    console.log(gpt.data)
     const outputDiv = document.getElementById('output');
     outputDiv.innerHTML = `<h2>Processed PDF Text:</h2><pre>${gpt.data}</pre>`;
   } catch (error) {
