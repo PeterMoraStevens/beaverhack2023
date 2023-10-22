@@ -8,13 +8,16 @@
     <script defer type="module" src="/main.js"></script>
     <title>Vite App</title>
   </head>
-  <body>
+  <body >
     <div class="returned-schedule"></div>
     <div id="app"></div>
     <script defer type="module" src="/main.js"></script>
-    <p>Upload your syllabus file here: </p>
+    <h1> Upload your syllabus file here:</h1>
+    <BR>
     <form class="form" id="myForm" action="/process" method="POST" enctype="multipart/form-data">
-      <input type = "file" id="syllFile" name="syllabus" accept="application/pdf">
+      <input class="inputfile" type = "file" id="syllFile" name="syllabus" accept="application/pdf"> <!-- input file --> 
+      <BR>
+      <BR>
       <button class="button-35" type="submit"> Upload </button>
     </form>
     <div id="output"></div>

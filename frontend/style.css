@@ -6,12 +6,25 @@
 }
 
 body {
+  text-align: center;
   background-color: #F0EBD8;
   color: black;
+  margin: 0;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.inputfile{
+  
+
+
 }
 
 /* CSS */
-.button-35{
+.button-35{ /* Upload Button */
   align-items: center;
   background-color: #fff;
   border-radius: 12px;
@@ -39,6 +52,6 @@ body {
   touch-action: manipulation;
 }
 
-.button-35:hover {
+.button-35:hover { 
   box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
 }
